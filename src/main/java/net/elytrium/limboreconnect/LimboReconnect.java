@@ -52,7 +52,6 @@ import net.elytrium.limboapi.api.protocol.packets.PacketMapping;
 import net.elytrium.limboreconnect.commands.LimboReconnectCommand;
 import net.elytrium.limboreconnect.handler.ReconnectHandler;
 import net.elytrium.limboreconnect.listener.ReconnectListener;
-import net.elytrium.limboreconnect.protocol.packets.PlaySound;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.ComponentSerializer;
 import net.kyori.adventure.title.Title;
@@ -147,29 +146,10 @@ public class LimboReconnect {
     }
 
     this.limbo = this.factory.createLimbo(world)
-        .setName("LimboReconnect")
-        .setShouldRejoin(CONFIG.useLimbo)
-        .setShouldRespawn(CONFIG.useLimbo)
-        .setGameMode(CONFIG.world.gamemode)
-        .registerPacket(PacketDirection.CLIENTBOUND, PlaySound.class, null, new PacketMapping[] {
-            new PacketMapping(0x29, ProtocolVersion.MINECRAFT_1_7_2, true),
-            new PacketMapping(0x19, ProtocolVersion.MINECRAFT_1_9, true),
-            new PacketMapping(0x1a, ProtocolVersion.MINECRAFT_1_13, true),
-            new PacketMapping(0x19, ProtocolVersion.MINECRAFT_1_14, true),
-            new PacketMapping(0x1a, ProtocolVersion.MINECRAFT_1_15, true),
-            new PacketMapping(0x19, ProtocolVersion.MINECRAFT_1_16, true),
-            new PacketMapping(0x18, ProtocolVersion.MINECRAFT_1_16_2, true),
-            new PacketMapping(0x19, ProtocolVersion.MINECRAFT_1_17, true),
-            new PacketMapping(0x16, ProtocolVersion.MINECRAFT_1_19, true),
-            new PacketMapping(0x17, ProtocolVersion.MINECRAFT_1_19_1, true),
-            new PacketMapping(0x5e, ProtocolVersion.MINECRAFT_1_19_3, true),
-            new PacketMapping(0x62, ProtocolVersion.MINECRAFT_1_19_4, true),
-            new PacketMapping(0x64, ProtocolVersion.MINECRAFT_1_20_2, true),
-            new PacketMapping(0x66, ProtocolVersion.MINECRAFT_1_20_3, true),
-            new PacketMapping(0x68, ProtocolVersion.MINECRAFT_1_20_5, true),
-            new PacketMapping(0x6f, ProtocolVersion.MINECRAFT_1_21_2, true),
-            new PacketMapping(0x6e, ProtocolVersion.MINECRAFT_1_21_5, true),
-            });
+      .setName("LimboReconnect")
+      .setShouldRejoin(CONFIG.useLimbo)
+      .setShouldRespawn(CONFIG.useLimbo)
+      .setGameMode(CONFIG.world.gamemode);
 
     this.offlineTitles.clear();
     CONFIG.messages.titles.titles.forEach(title -> this.offlineTitles.add(Title.title(

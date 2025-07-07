@@ -30,7 +30,6 @@ public class Config extends YamlSerializable {
 
   private static final SerializerConfig CONFIG = new SerializerConfig.Builder().setCommentValueIndent(1).build();
 
-
   @Comment(value = {
       @CommentValue("Available serializers:"),
       @CommentValue("LEGACY_AMPERSAND - \"&c&lExample &c&9Text\"."),
@@ -58,17 +57,13 @@ public class Config extends YamlSerializable {
 
   public World world;
   public Messages messages;
-  public Sounds sounds;
   public boolean debug = false;
-
 
   public Config() {
     super(Config.CONFIG);
     this.world = new World();
     this.messages = new Messages();
-    this.sounds = new Sounds();
   }
-
 
   public static class World {
 
@@ -81,7 +76,6 @@ public class Config extends YamlSerializable {
     public BuiltInWorldFileType worldFileType = BuiltInWorldFileType.WORLDEDIT_SCHEM;
     public int worldLightLevel = 15;
     public GameMode gamemode = GameMode.ADVENTURE;
-
 
     public WorldCoords worldCoords;
     public PlayerCoords playerCoords;
@@ -150,23 +144,4 @@ public class Config extends YamlSerializable {
     }
   }
 
-  public static class Sounds {
-
-    public Sound waiting = new Sound("entity.experience_orb.pickup");
-    public Sound connecting = new Sound("entity.player.levelup");
-
-    public static class Sound {
-
-      public String name;
-      public float volume = 1.0f;
-      public float pitch = 1.0f;
-
-      public Sound() {
-      }
-
-      public Sound(String name) {
-        this.name = name;
-      }
-    }
-  }
 }
