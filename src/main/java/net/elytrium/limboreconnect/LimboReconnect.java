@@ -144,7 +144,7 @@ public class LimboReconnect {
         throw new IllegalArgumentException(e);
       }
     }
-
+ 
     this.limbo = this.factory.createLimbo(world)
       .setName("LimboReconnect")
       .setShouldRejoin(CONFIG.useLimbo)
