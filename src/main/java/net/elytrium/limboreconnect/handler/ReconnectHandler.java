@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 import net.elytrium.limboapi.api.Limbo;
 import net.elytrium.limboapi.api.LimboSessionHandler;
 import net.elytrium.limboapi.api.player.LimboPlayer;
-import net.elytrium.limboreconnect.Config;
 import net.elytrium.limboreconnect.LimboReconnect;
 
 public class ReconnectHandler implements LimboSessionHandler {
